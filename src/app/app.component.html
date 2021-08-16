@@ -15,8 +15,8 @@
 </form> -->
 
 <section>
-  <ul *ngIf="todoList$ | async; else loading">
-    <li *ngFor="let item of todoList$ | async">
+  <ul *ngIf="todoList$ | async as items; else loading">
+    <li *ngFor="let item of items">
       {{ item.title }}
     </li>
   </ul>

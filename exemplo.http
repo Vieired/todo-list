@@ -1,29 +1,30 @@
-http://localhost:3000/cursos
+http://localhost:3000/todoList
 
 ###
 
-GET http://localhost:3000/cursos/3 HTTP/1.1
+GET http://localhost:3000/todoList/3 HTTP/1.1
 
 ###
 
-POST http://localhost:3000/cursos HTTP/1.1
+POST http://localhost:3000/todoList HTTP/1.1
 content-type: application/json
 
 {
-    "nome": "Java"
+    "title": "Comprar fechadura da porta",
+    "done": false
 }
 
 ###
 
-PUT http://localhost:3000/cursos/3 HTTP/1.1
+PUT http://localhost:3000/todoList/1 HTTP/1.1
 content-type: application/json
 
 {
-    "nome": "C-Sharp (C#)"
+    "title": "Passear com o cachorro e o papagaio"
 }
 
 ###
 
-DELETE http://localhost:3000/cursos/2
+DELETE http://localhost:3000/todoList/2
 
 

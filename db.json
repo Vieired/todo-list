@@ -1,16 +1,12 @@
 {
-  "cursos": [
+  "todoList": [
     {
-      "id": 1,
-      "title": "Angular"
+        "title": "Passear com os cachorros",
+        "done": false
     },
     {
-      "nome": "Java",
-      "id": 2
-    },    
-    {
-      "nome": "C-Sharp",
-      "id": 3
+        "title": "Ir ao supermercado depois do expediente",
+        "done": false
     }
   ]
 }

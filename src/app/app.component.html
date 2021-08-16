@@ -1,6 +1,6 @@
 <h1>Lista de Tarefas</h1>
 
-<ul>
+<!-- <ul>
   <li *ngFor="let todo of todos">
     <span *ngIf="todo.done">Ok</span>
     {{ todo.title }}
@@ -12,4 +12,11 @@
 <form [formGroup]="form">
   <input type="text" formControlName="title">
   <button (click)="addTodo()">Adicionar</button>
-</form>
+</form> -->
+
+<ul>
+  <li *ngFor="let todo of todoList">
+    <span *ngIf="todo.done">Ok</span>
+    {{ todo.title }}
+  </li>
+</ul>

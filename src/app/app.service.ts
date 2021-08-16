@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http'
 import { Todo } from "src/models/todo.models";
-import { tap } from 'rxjs/operators'
+import { delay, tap } from 'rxjs/operators'
 import { environment } from "src/environments/environment";
 
 @Injectable({
@@ -15,6 +15,7 @@ export class TodoListService {
     list() {
         return this.http.get<Todo[]>(this.API)
             .pipe(
+                delay(2000),
                 tap(console.log)
             );
     }

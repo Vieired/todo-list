@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { Todo } from 'src/models/todo.models';
 import { TodoListService } from './app.service';
 
@@ -12,6 +13,7 @@ export class AppComponent implements OnInit {
   public form: FormGroup;
   public todos: Todo[] = [];
   todoList: Todo[];
+  todoList$: Observable<Todo[]>;
 
   constructor(
     private fb: FormBuilder,
@@ -29,8 +31,10 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.list()
-      .subscribe(data => this.todoList = data);
+    // this.service.list()
+    //   .subscribe(data => this.todoList = data);
+
+    this.todoList$ = this.service.list();
   }
 
   load() {

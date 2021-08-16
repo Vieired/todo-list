@@ -14,9 +14,13 @@
   <button (click)="addTodo()">Adicionar</button>
 </form> -->
 
-<ul>
-  <li *ngFor="let todo of todoList">
-    <span *ngIf="todo.done">Ok</span>
-    {{ todo.title }}
-  </li>
-</ul>
+<section>
+  <ul *ngIf="todoList$ | async; else loading">
+    <li *ngFor="let item of todoList$ | async">
+      {{ item.title }}
+    </li>
+  </ul>
+  <ng-template #loading>
+    <p>Carregando...</p>
+  </ng-template>  
+</section>

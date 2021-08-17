@@ -76,9 +76,18 @@ export class AppComponent implements OnInit {
     }
   }
 
-  removeTodo(todo: Todo) {
-    const index = this.todos.indexOf(todo);
-    this.todos.splice(index, 1);
+  removeTodo(id: string) {
+    // const index = this.todos.indexOf(todo);
+    // this.todos.splice(index, 1);
+    
+    this.service.delete(id).subscribe(
+      success => console.log('sucesso'),
+      error => console.error(error),
+      () => {
+        console.log('request completo');
+        this.load();
+      }
+    );
   }
 
   markAsDone(todo: Todo) {

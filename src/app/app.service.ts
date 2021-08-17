@@ -37,4 +37,12 @@ export class TodoListService {
                 take(1)
             );
     }
+
+    delete(id: string) {
+        return this.http.delete(`${this.API}/${id}`)
+            .pipe(
+                tap(console.log),
+                take(1)
+            )
+    }
 }

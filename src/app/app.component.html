@@ -18,6 +18,7 @@
   <ul *ngIf="todoList$ | async as items; else loading">
     <li *ngFor="let item of items">
       {{ item.title }}
+      <button (click)="removeTodo(item.id)">Remover</button>
     </li>
   </ul>
   <ng-template #loading>

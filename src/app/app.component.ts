@@ -92,5 +92,13 @@ export class AppComponent implements OnInit {
 
   markAsDone(todo: Todo) {
     todo.done = true;
+
+    this.service.update(todo).subscribe(
+      success => console.log('sucesso'),
+      error => console.error(error),
+      () => {
+        console.log('request completo');
+      }
+    );
   }
 }

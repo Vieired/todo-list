@@ -17,8 +17,10 @@
 <section>
   <ul *ngIf="todoList$ | async as items; else loading">
     <li *ngFor="let item of items">
+      <span *ngIf="item.done">&#x02713;</span>
       {{ item.title }}
       <button (click)="removeTodo(item.id)">Remover</button>
+      <button (click)="markAsDone(item)" *ngIf="!item.done">Concluir</button>
     </li>
   </ul>
   <ng-template #loading>

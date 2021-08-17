@@ -45,4 +45,12 @@ export class TodoListService {
                 take(1)
             )
     }
+
+    update(todo: Todo) {
+        return this.http.put(`${this.API}/${todo.id}`, todo)
+            .pipe(
+                tap(console.log),
+                take(1)
+            )
+    }
 }

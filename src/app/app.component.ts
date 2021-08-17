@@ -24,7 +24,8 @@ export class AppComponent implements OnInit {
         Validators.minLength(3),
         Validators.maxLength(60),
         Validators.required
-      ])]
+      ])],
+      done: [null]
     })
     
     // this.load();
@@ -34,25 +35,44 @@ export class AppComponent implements OnInit {
     // this.service.list()
     //   .subscribe(data => this.todoList = data);
 
-    this.todoList$ = this.service.list();
+    this.load();
   }
 
-  // load() {
-  //   this.todos.push({
-  //     title: 'Passear com o cachorro',
-  //     done: false
-  //   });
-  //   this.todos.push({
-  //     title: 'Ir ao supermercado',
-  //     done: false
-  //   }); 
-  // }
+  load() {
+    // this.todos.push({
+    //   title: 'Passear com o cachorro',
+    //   done: false
+    // });
+    // this.todos.push({
+    //   title: 'Ir ao supermercado',
+    //   done: false
+    // });
+
+    this.todoList$ = this.service.list();
+  }
 
   // addTodo() {
   //   const title = this.form.controls['title'].value;
   //   this.todos.push(new Todo(title, false));
   //   this.form.reset();
   // }
+
+  addTodo() {
+    // this.submitted = true;
+    console.log(this.form.value)
+    if(this.form.valid) {
+      console.log('submit');
+      this.service.create(this.form.value).subscribe(
+        success => console.log('sucesso'),
+        error => console.error(error),
+        () => {
+          console.log('request completo');
+          this.form.reset();
+          this.load();
+        }
+      );
+    }
+  }
 
   removeTodo(todo: Todo) {
     const index = this.todos.indexOf(todo);

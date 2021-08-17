@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http'
 import { Todo } from "src/models/todo.models";
-import { delay, tap } from 'rxjs/operators'
+import { delay, take, tap } from 'rxjs/operators'
 import { environment } from "src/environments/environment";
 
 @Injectable({
@@ -26,6 +26,15 @@ export class TodoListService {
             .pipe(
                 delay(2000),
                 tap(console.log)
+            );
+    }
+
+    create(todo: Todo) {
+        // const randomId = Math.ceil(Math.random() * Math.pow(10,4));
+        return this.http.post(this.API, todo)
+            .pipe(
+                tap(console.log),
+                take(1)
             );
     }
 }

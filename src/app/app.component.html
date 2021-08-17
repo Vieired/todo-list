@@ -24,3 +24,11 @@
     <p>Carregando...</p>
   </ng-template>  
 </section>
+
+<section>
+  <form [formGroup]="form">
+    <input type="text" formControlName="title" placeholder="Título">
+    <input type="text" formControlName="done" placeholder="Status">
+    <button (click)="addTodo()">Adicionar</button>
+  </form>
+</section>

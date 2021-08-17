@@ -58,7 +58,9 @@ export class AppComponent implements OnInit {
   // }
 
   addTodo() {
-    // this.submitted = true;
+    // if(this.form.controls['done'].value !== true)
+    this.form.controls['done'].setValue(false);
+
     console.log(this.form.value)
     if(this.form.valid) {
       console.log('submit');

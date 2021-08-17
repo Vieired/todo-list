@@ -19,4 +19,13 @@ export class TodoListService {
                 tap(console.log)
             );
     }
+
+    listById(id: string) {
+        const url = `${this.API}?id=${id}`
+        return this.http.get<Todo[]>(url)
+            .pipe(
+                delay(2000),
+                tap(console.log)
+            );
+    }
 }

@@ -37,22 +37,22 @@ export class AppComponent implements OnInit {
     this.todoList$ = this.service.list();
   }
 
-  load() {
-    this.todos.push({
-      title: 'Passear com o cachorro',
-      done: false
-    });
-    this.todos.push({
-      title: 'Ir ao supermercado',
-      done: false
-    }); 
-  }
+  // load() {
+  //   this.todos.push({
+  //     title: 'Passear com o cachorro',
+  //     done: false
+  //   });
+  //   this.todos.push({
+  //     title: 'Ir ao supermercado',
+  //     done: false
+  //   }); 
+  // }
 
-  addTodo() {
-    const title = this.form.controls['title'].value;
-    this.todos.push(new Todo(title, false));
-    this.form.reset();
-  }
+  // addTodo() {
+  //   const title = this.form.controls['title'].value;
+  //   this.todos.push(new Todo(title, false));
+  //   this.form.reset();
+  // }
 
   removeTodo(todo: Todo) {
     const index = this.todos.indexOf(todo);

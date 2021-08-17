@@ -1,10 +1,12 @@
 {
   "todoList": [
     {
+        "id": "1",
         "title": "Passear com os cachorros",
         "done": false
     },
     {
+        "id": "2",
         "title": "Ir ao supermercado depois do expediente",
         "done": false
     }
